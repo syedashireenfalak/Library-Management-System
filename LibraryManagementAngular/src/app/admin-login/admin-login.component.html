@@ -1,0 +1,241 @@
+<div class="divclass" *ngIf="adminLogin">
+    <table>
+        <tr>
+            <th>
+                Admin Id
+            </th>
+            <td>
+                <input type="text" name="Student Id" [(ngModel)]="adminId">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Password
+            </th>
+            <td>
+                <input type="text" name="Password" [(ngModel)]="adminPass">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <button class="btn btn-warning" (click)="AdminHomePage()">Submit</button>
+</div>
+<div *ngIf="loginFail">
+    <p style="color: red;">Login Failed please check Username and Password</p>
+</div>
+<div class="admin_body" *ngIf="adminBody">
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showAddStudent()">Add Student</button>
+    <div class="admin_div" *ngIf="addStudent">
+        <table>
+            <tr>
+                <th><label for="studentName">Student Name</label></th>
+                <td><input type="text" name="studentName" [(ngModel)]="studentName">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="emailId">Email Id</label>
+                </th>
+                <td>
+                    <input type="text" name="emailId" [(ngModel)]="studentEmail">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="year">Year</label>
+                </th>
+                <td>
+                    <input type="text" name="year" [(ngModel)]="studentYear">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="department">Department</label>
+                </th>
+                <td>
+                    <input type="text" name="department" [(ngModel)]="department">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="status">Status</label>
+                </th>
+                <td>
+                    <input type="text" name="status" [(ngModel)]="studentStatus">
+                </td>
+            </tr>
+            <tr>
+                <th>Note :</th>
+                <td>
+                    <p>Please set Active or Deactivated</p>
+                </td>
+            </tr>
+        </table>
+        <button id="bt" (click)="AddStudent()">Add Student</button>
+    </div>
+    <br><br>
+    <!-- ---------------------------Adding Admin here--------------- -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showAddAdmin()">Add Admin</button>
+    <div class="admin_div" *ngIf="addAdmin">
+        <table>
+            <tr>
+                <th><label for="adminName">Admin Name</label></th>
+                <td><input type="text" name="adminName" [(ngModel)]="adminName">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="emailId">Email Id</label>
+                </th>
+                <td>
+                    <input type="text" name="emailId" [(ngModel)]="adminEmail">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="contact">Contact No</label>
+                </th>
+                <td>
+                    <input type="text" name="contact" [(ngModel)]="contact">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="status">Status</label>
+                </th>
+                <td>
+                    <input type="text" name="status" [(ngModel)]="adminStatus">
+                </td>
+            </tr>
+            <tr>
+                <th>Note :</th>
+                <td>
+                    <p>Please set Active or Deactivated</p>
+                </td>
+            </tr>
+        </table>
+        <button id="bt" (click)="AddAdmin()">Add Admin</button>
+    </div><br><br>
+    <!-- ------------------------Adding Fine -------------------- -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showAddFine()">Add Fine</button>
+    <div class="admin_div" *ngIf="addFine">
+        <table>
+            <tr>
+                <th>
+                    <label for="studentId">Student Id</label>
+                </th>
+                <td>
+                    <input type="text" class="studentId" [(ngModel)]="fineStudentId">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="fineAmount">Fine Amount</label>
+                </th>
+                <td>
+                    <input type="number" class="fineAmount" [(ngModel)]="fineAmount">
+                </td>
+            </tr>
+        </table>
+        <button class="bt" (click)="AddFine()">Add Fine</button>
+    </div><br><br>
+    <!-- --------------- Deactivating Student ----------------------------------- -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showDeactivate()">Deactivate Student</button>
+    <div class="admin_div" *ngIf="deactivateStudent">
+        <label for="deactivate"><pre>Deactivate Student    :</pre></label>
+        <input type="number" class="deactivate" [(ngModel)]="deactivateId">
+        <button type="submit" (click)="Deactivate()">Deactivate Student</button>
+    </div><br><br>
+    <!-- ------------------- Add Book ------------------------- -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showAddBook()">Add Book</button>
+    <div class="admin_div" *ngIf="addBook">
+        <table>
+            <tr>
+                <th><label for="bookName">Book Name</label></th>
+                <td><input type="text" class="bookName" [(ngModel)]="bookName"></td>
+            </tr>
+            <tr>
+                <th><label for="author">Author</label></th>
+                <td><input type="text" class="author" [(ngModel)]="author"></td>
+            </tr>
+            <tr>
+                <th><label for="edition">Edition</label></th>
+                <td><input type="text" class="edition" [(ngModel)]="edition"></td>
+            </tr>
+            <tr>
+                <th><label for="category">Category</label></th>
+                <td><input type="text" class="category" [(ngModel)]="category"></td>
+            </tr>
+            <tr>
+                <th><label for="serialNo">Serial No</label></th>
+                <td><input type="text" class="serialNo" [(ngModel)]="serialNo"></td>
+            </tr>
+        </table>
+        <button class="bt" (click)="AddBook()">Add Book</button>
+    </div><br><br>
+    <!-- ----------------------- Remove Book ---------------------------------- -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showRemoveBook()">Remove Book</button>
+    <div class="admin_div" *ngIf="removeBook">
+        <label for="bookNameR"><pre>Book Name     :</pre></label>
+        <input type="text" class="bookNameR" [(ngModel)]="bookNameR">
+        <button class="bt" (click)="RemoveBook()">Remove Book</button>
+    </div><br><br>
+    <!-- --------------------- All Issues ---------------------------------------- -->
+    <button style="margin-left: 20px;" class="btn btn-success" (click)="ShowAllIssues()">Show All Issued Books</button>
+    <div class="admin_div" *ngIf="boolShowIssues">
+        <table class="tb">
+            <thead><tr class="tr1">
+                <th>id</th>
+                <th>book_id</th>
+                <th>due_date</th>
+                <th>issueDate</th>
+                <th>return_date</th>
+                <th>student_id</th>
+            </tr></thead>
+            <tbody>
+                <tr *ngFor="let x of data">
+                    <td>{{x.id}}</td>
+                    <td>{{x.bookId}}</td>
+                    <td>{{x.dueDate}}</td>
+                    <td>{{x.issueDate}}</td>
+                    <td>{{x.returnDate}}</td>
+                    <td>{{x.studentId}}</td>
+            </tr></tbody>
+        </table>
+    </div><br><br>
+    <!-- -------------------- Issues By Student ------------------------------------   -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="ShowIssuesBySt()">Isses By a Student</button>
+    <div class="admin_div" *ngIf="boolIssuesSt"> 
+        <label for="stId">Student Id</label>
+        <input type="text" class="stId" [(ngModel)]="issuesSt">
+        <button class="bt" (click)="ShowIssesSt()">Show Issues</button>
+    </div>
+    <table class="tb" *ngIf="tabe">
+        <thead><tr class="tr1">
+            <th>id</th>
+            <th>book_id</th>
+            <th>due_date</th>
+            <th>issueDate</th>
+            <th>return_date</th>
+            <th>student_id</th>
+        </tr></thead>
+        <tbody>
+            <tr *ngFor="let x of stIssues">
+                <td>{{x.id}}</td>
+                <td>{{x.bookId}}</td>
+                <td>{{x.dueDate}}</td>
+                <td>{{x.issueDate}}</td>
+                <td>{{x.returnDate}}</td>
+                <td>{{x.studentId}}</td>
+        </tr></tbody>
+    </table><br><br>
+    <!-- -------------------------Change password------------------------------------ -->
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showChangePassword()">Change Password</button>
+    <div class="admin_div" *ngIf="changePass">
+        <label for="bookNa"><pre>Admin Id   :</pre></label>
+        <input type="text" class="bookNa" [(ngModel)]="adminId1"><br>
+        <label for="bookNameR"><pre>New Password:</pre></label>
+        <input type="text" class="bookNameR" [(ngModel)]="newPass"><br>
+        <button class="bt" (click)="ChangePass()">Change Password</button>
+    </div><br><br>
+</div>

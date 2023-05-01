@@ -1,0 +1,98 @@
+<div class="divclass" *ngIf="loginbar">
+    <table>
+        <tr>
+            <th>Student Id</th>
+            <td><input type="text" name="Student Id" [(ngModel)]="studentId"></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="text" name="Password" [(ngModel)]="studentPass"></td>
+        </tr>
+    </table>
+    <br>
+    <button class="btn btn-warning" (click)="StudentHomePage()">Submit</button>
+</div>
+<div *ngIf="loginfail">
+    <p style="color: red;">Login Failed please check Username and Password</p>
+</div>
+
+
+
+<body class="student_div" *ngIf="isLoggedIn">
+    <button class="btn btn-success" style="margin-left: 20px;" (click)="showAllBooks()" >All Books</button>
+<div  class="div_main" *ngIf="showBooks">
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>bookName</th>
+                <th>author</th>
+                <th>edition</th>
+                <th>category</th>
+                <th>serialNo</th>
+                <th>available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of data">
+                <td>{{x.id}}</td>
+                <td>{{x.bookName}}</td>
+                <td>{{x.author}}</td>
+                <td>{{x.edition}}</td>
+                <td>{{x.category}}</td>
+                <td>{{x.serialNo}}</td>
+                <td>{{x.available}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div><br>
+<button class="btn btn-success" style="margin-left: 20px;" (click)="EnableBook()">Borrow Book</button>
+<div class="div_main" *ngIf="isEnable" >
+    
+    <table >
+        <tr>
+            <th><label for="studentId">Student Id</label></th>
+            <td><input type="text" class="studentId" [(ngModel)]="studentIdB"></td>
+        </tr>
+        <tr>
+            <th><label for="bookId">Book Id</label></th>
+            <td><input type="text" class="bookId" [(ngModel)]="bookId"></td>
+        </tr>
+    </table>
+    <button (click)="BookABook()" class="bt">Borrow Book</button>
+</div><br>
+<button class="btn btn-success" style="margin-left: 20px;" (click)="showChangePassword()">Change Password</button>
+<div class="div_main" *ngIf="changePass">
+    <label for="bookNa"><pre>Student Id   :</pre></label>
+    <input type="text" class="bookNa" [(ngModel)]="adminId1"><br>
+    <label for="bookNameR"><pre>New Password:</pre></label>
+    <input type="text" class="bookNameR" [(ngModel)]="newPass"><br>
+    <button class="bt" (click)="ChangePass()">Change Password</button>
+</div><br>
+<button class="btn btn-success" style="margin-left: 20px;" (click)="bb()">Show OverDue List</button>
+<div class="div_main" *ngIf="boolShowIssues">
+    <label for="bookNa"><pre>Student Id   :</pre></label>
+    <input type="text" class="bookNa" [(ngModel)]="stId"><br>
+    <button class="bt" (click)="showOverDue()">Show List</button>
+    <table class="tb" *ngIf="showtab">
+        <thead><tr class="tr1">
+            <th>id</th>
+            <th>book_id</th>
+            <th>due_date</th>
+            <th>issueDate</th>
+            <th>return_date</th>
+            <th>student_id</th>
+        </tr></thead>
+        <tbody>
+            <tr *ngFor="let x of dataD">
+                <td>{{x.id}}</td>
+                <td>{{x.bookId}}</td>
+                <td>{{x.dueDate}}</td>
+                <td>{{x.issueDate}}</td>
+                <td>{{x.returnDate}}</td>
+                <td>{{x.studentId}}</td>
+        </tr></tbody>
+    </table>
+</div><br><br>
+</body> 
+

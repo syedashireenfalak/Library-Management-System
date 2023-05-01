@@ -1,0 +1,39 @@
+.divclass{
+    border: 1px solid black;
+    align-items: center;
+    height: 10em;
+    margin: 20px;
+    margin-left: 0px;
+    padding-left: 0%;
+    line-height: normal;
+    width: 100%;
+    color: blue;
+    line-height: 10px;
+}
+#bt{
+    margin: 10px;
+    background-color: lightgray;
+}
+.table{
+    padding: 50px;
+    border: 1px solid grey;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+body{
+    background-color :aliceblue;
+    font-size: 20px;
+    padding: 20px;
+    padding-left:10px ;
+    margin: 0px;
+}
+button{
+    margin-top: 10px;
+}
+.div_main{
+    background-color: antiquewhite;
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
